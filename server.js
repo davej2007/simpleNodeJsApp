@@ -6,19 +6,13 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 // const config = require('./API/config/database');
 const app = express(); 
-// const jwt = require('jsonwebtoken');
 
 // **** Port Variables
 const PORT = process.env.PORT || 8080;
 // const dbURI = process.env.dbUri || config.uri;
+
 // **** API Routes
-// const authRoute = require('./API/routes/auth');
-// const siteRoute = require('./API/routes/site');
-// const employeeRoute = require('./API/routes/employee');
-// const noticeboardRoute = require('./API/routes/noticeboard');
-// const rotaRoute = require('./API/routes/rota');
-// const fileRoute = require('./API/routes/file');
-// const fileUploadRoute = require('./API/routes/fileUpload');
+const APIRoute = require('./API/routes/api');
 
 // **** Database Connection
 // mongoose.connect(dbURI, {useNewUrlParser: true}, (err) => {
@@ -46,13 +40,7 @@ app.use(function (req, res, next) {
 });
 
 // **** Router routes
-// app.use('/api/auth', authRoute);
-// app.use('/api/site', siteRoute);
-// app.use('/api/employee', employeeRoute);
-// app.use('/api/noticeboard', noticeboardRoute);
-// app.use('/api/rota', rotaRoute);
-// app.use('/api/file', fileRoute);
-// app.use('/api/fileUpload', fileUploadRoute);
+app.use('/api', APIRoute);
 
 // **** Main routes
 app.get('*', (req, res) => {
